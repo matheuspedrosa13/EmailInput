@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { EmailInput } from './components/EmailInput';
+import { useState } from 'react';
 
 function App() {
+  const [Email, setEmail] = useState('')
+  const [textoInpt, setTextInpt] = useState('')
+  function handleSubmit(){
+      //logica do envio 
+      console.log(textoInpt)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <EmailInput onchange1={(e) => setTextInpt(e.target.value)} onchange2={(e) => setEmail(e.target.value)} funcao={handleSubmit} emailVali={Email === "" ? "vazio" : ""}/>
     </div>
   );
 }
